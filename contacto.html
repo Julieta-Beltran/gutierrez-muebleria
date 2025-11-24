@@ -7,6 +7,146 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
+<style>
+ /* ============================================
+   CONTACTO - estilos específicos
+   ============================================ */
+
+.contact-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* FORMULARIO */
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+/* INFORMACIÓN DE CONTACTO */
+.contact-info {
+    background: var(--color-fondo-claro);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+    color: var(--color-primario);
+}
+
+/* ICONOS GRANDES */
+.social-icons-large {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icons-large .social-icon {
+    width: 45px;
+    height: 45px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.btn-primary {
+    background: var(--color-fondo-claro);
+    color: #086621;
+    padding: 6px 6px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* ============================================
+   CHAT WIDGET
+   ============================================ */
+.chat-widget {
+    width: 100%;
+    max-width: 550px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.chat-header {
+    background: var(--color-primario);
+    color: #fff;
+    padding: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.chat-body {
+    height: 200px;
+    background: #fafafa;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.bot-msg {
+    background: #e3e9ff;
+    padding: 10px 14px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+}
+
+.chat-input button {
+    padding: 12px 18px;
+    border: none;
+    background: var(--color-acento);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
 <body>
 
     <!-- HEADER SUPERIOR -->
@@ -49,55 +189,101 @@
         <div class="container">
             <h1 class="page-title">Contáctanos</h1>
             
-            <!-- 
-            ===========================================
-            INSTRUCCIONES:
-            Desarrolla aquí el formulario de contacto con:
-            
-            Layout Grid 2 columnas:
-            
-            COLUMNA IZQUIERDA: FORMULARIO
-            - Nombre completo (input text, required)
-            - Correo electrónico (input email, required)
-            - Teléfono (input tel)
-            - Asunto (input text)
-            - Mensaje (textarea, required)
-            - Botón "Enviar mensaje" (btn-primary)
-            
-            COLUMNA DERECHA: INFORMACIÓN DE CONTACTO
-            - Dirección física
-            - Teléfono clickeable
-            - Correo electrónico
-            - Horarios de atención
-            - Redes sociales
-            
-            DEBAJO: CHAT WIDGET
-            - Diseño visual de ventana de chat (no funcional)
-            - Puede ser un div con estilos que simule un chat
-            Ejemplo:
-            <div class="chat-widget">
-              <div class="chat-header">Chat en línea</div>
-              <div class="chat-body">
-                <p>¡Hola! ¿En qué podemos ayudarte?</p>
-              </div>
-              <div class="chat-input">
-                <input type="text" placeholder="Escribe tu mensaje...">
-                <button>Enviar</button>
-              </div>
-            </div>
-            
-            Usa las clases:
-            - .grid-2 para el layout
-            - .form-group para cada campo
-            - .btn-primary para el botón
-            ===========================================
-            -->
-            
-            <p style="text-align: center; margin-top: 40px;">
-                El equipo desarrollará aquí el formulario de contacto completo con chat widget
-            </p>
+           
+            <h4 style="text-align: center; margin-top: 40px;">
+                ¡Te ayudamos, asesoramos y guiamos en tus compras!
+            </h4>
         </div>
     </main>
+
+ <!-- 
+        ===========================================
+        COLUMNA IZQUIERDA → FORMULARIO
+        COLUMNA DERECHA → INFO DE CONTACTO
+        ===========================================
+    -->
+    <section class="container contact-grid">
+
+        <!-- COLUMNA IZQUIERDA – FORMULARIO -->
+        <div class="contact-form">
+            <form>
+                <div class="form-group"><br>
+                    <label>Nombre completo *</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico *</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel">
+                </div>
+
+                <div class="form-group">
+                    <label>Asunto</label>
+                    <input type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>Mensaje *</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+                
+                <div>
+                <button type="submit" class="btn-secondary">Enviar mensaje</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- COLUMNA DERECHA – INFORMACIÓN DE CONTACTO -->
+        <div class="contact-info">
+            <h3>Información de contacto directa</h3>
+
+            <p><strong>Dirección:</strong><br>
+            Calle Juárez Eje Sur 23, Tlajomulco de Zúñiga, Jalisco.</p>
+            <a href="https://www.google.com/maps?q=Calle+Juárez+Eje+Sur+23,+Tlajomulco+de+Zúñiga,+Jalisco" target="_blank" class="btn-primary">Ver en Google Maps</a><br>
+            <br>
+
+            <p><strong>Teléfono:</strong><br>
+            <a href="tel:33XXXXXXX">33-XXXX-XXXX</a></p><br>
+
+            <p><strong>Correo:</strong><br>
+            contacto@gutierrezmuebleria.com</p><br>
+
+            <p><strong>Horarios:</strong><br>
+            Lunes a Viernes: 9:00 AM – 7:00 PM <br>
+            Sábados:  9:00 AM – 5:00 PM <br>
+            Domingos:  10:00 AM – 3:00 PM</p><br>
+
+               <h3>Redes Sociales</h3>
+                    <p>Síguenos en redes sociales</p>
+                    <div class="social-icons">
+                        <div class="social-icon" style="background: var(--color-primario);">f</div>
+                        <div class="social-icon" style="background-color: #d0a414 ;">i</div>
+                        <div class="social-icon" style="background: var(--color-whatsapp);">W</div>
+                    </div>
+    </section>
+
+    <!-- CHAT WIDGET (Simulado) -->
+    <section class="container">
+        <h2 style="text-align:center; margin-top: 60px;">Chat en Línea</h2>
+
+        <div class="chat-widget">
+            <div class="chat-header">Chat en línea</div>
+
+            <div class="chat-body">
+                <p class="bot-msg">¡Hola! ¿En qué podemos ayudarte?</p>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe tu mensaje...">
+                <button>Enviar</button>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
