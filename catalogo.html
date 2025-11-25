@@ -49,34 +49,159 @@
         <div class="container">
             <h1 class="page-title">Nuestro Catálogo de Muebles</h1>
             
-            <!-- 
-            ===========================================
-            INSTRUCCIONES:
-            Desarrolla aquí la tienda virtual con:
-            - Filtros por categoría (Salas, Comedores, Recámaras, Otros)
-            - Grid de productos (mínimo 20 productos)
-            - Cada producto debe tener:
-              * Imagen (placeholder por ahora)
-              * Nombre del producto
-              * Precio
-              * Botón "Ver detalles" que enlace a producto-detalle.html
+            <!-- FILTROS POR CATEGORÍA -->
+            <section class="catalog-filters" aria-label="Filtros del catálogo">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="salas">Salas</button>
+                <button class="filter-btn" data-filter="comedores">Comedores</button>
+                <button class="filter-btn" data-filter="recamaras">Recámaras</button>
+                <button class="filter-btn" data-filter="otros">Otros muebles</button>
+            </section>
+
+            <!-- GRID DE PRODUCTOS -->
+            <section class="product-grid grid-4" aria-label="Listado de productos">
+
+                <!-- SALAS (5) -->
+                <article class="card product-card categoria-salas" data-category="salas">
+                    <div class="card-image">
+                        <img src="img/catalogo/sala-esquinera-viena.jpg" alt="Sala Esquinera Viena">
+                    </div>
+                    <div class="card-body">
+                        <h3>Sala Esquinera Viena</h3>
+                        <p class="price">$12,990 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+              
+                <article class="card product-card categoria-salas" data-category="salas">
+                    <div class="card-image">
+                        <img src="img/catalogo/sala-clasica-toledo.jpg" alt="Sala Clásica Toledo">
+                    </div>
+                    <div class="card-body">
+                        <h3>Sala Clásica Toledo</h3>
+                        <p class="price">$9,890 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="card product-card categoria-salas" data-category="salas">
+                    <div class="card-image">
+                        <img src="img/catalogo/sala-reclinable-denver.jpg" alt="Sala Reclinable Denver">
+                    </div>
+                    <div class="card-body">
+                        <h3>Sala Reclinable Denver</h3>
+                        <p class="price">$15,200 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+              
+                <!-- COMEDORES (5) -->
+                <article class="card product-card categoria-comedores" data-category="comedores">
+                    <div class="card-image">
+                        <img src="img/catalogo/comedor-nogal-6.jpg" alt="Comedor Nogal 6 Sillas">
+                    </div>
+                    <div class="card-body">
+                        <h3>Comedor Nogal 6 Sillas</h3>
+                        <p class="price">$13,500 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
             
-            Sugerencia de productos:
-            SALAS (5 productos)
-            COMEDORES (5 productos)
-            RECÁMARAS (5 productos)
-            OTROS MUEBLES (5 productos)
-            
-            Usa las clases:
-            - .grid-4 para el grid
-            - .card para cada producto
-            - .btn-primary para botones
-            ===========================================
-            -->
-            
-            <p style="text-align: center; margin-top: 40px;">
-                El equipo desarrollará aquí el catálogo completo con mínimo 20 productos
-            </p>
+                <article class="card product-card categoria-comedores" data-category="comedores">
+                    <div class="card-image">
+                        <img src="img/catalogo/comedor-industrial-8.jpg" alt="Comedor Industrial 8 Sillas">
+                    </div>
+                    <div class="card-body">
+                        <h3>Comedor Industrial 8 Sillas</h3>
+                        <p class="price">$18,200 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="card product-card categoria-comedores" data-category="comedores">
+                    <div class="card-image">
+                        <img src="img/catalogo/comedor-compacto-praga.jpg" alt="Comedor Compacto Praga">
+                    </div>
+                    <div class="card-body">
+                        <h3>Comedor Compacto Praga</h3>
+                        <p class="price">$9,250 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- RECÁMARAS (5) -->
+                <article class="card product-card categoria-recamaras" data-category="recamaras">
+                    <div class="card-image">
+                        <img src="img/catalogo/recamara-king-milwaukee.jpg" alt="Recámara King Milwaukee">
+                    </div>
+                    <div class="card-body">
+                        <h3>Recámara King Milwaukee</h3>
+                        <p class="price">$19,900 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+              
+                <article class="card product-card categoria-recamaras" data-category="recamaras">
+                    <div class="card-image">
+                        <img src="img/catalogo/cabecera-queen-paris.jpg" alt="Cabecera Queen Paris">
+                    </div>
+                    <div class="card-body">
+                        <h3>Cabecera Queen Paris</h3>
+                        <p class="price">$4,790 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="card product-card categoria-recamaras" data-category="recamaras">
+                    <div class="card-image">
+                        <img src="img/catalogo/tocador-luna.jpg" alt="Tocador con Espejo Luna">
+                    </div>
+                    <div class="card-body">
+                        <h3>Tocador con Espejo Luna</h3>
+                        <p class="price">$7,980 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- OTROS MUEBLES (5) -->
+                <article class="card product-card categoria-otros" data-category="otros">
+                    <div class="card-image">
+                        <img src="img/catalogo/centro-entretenimiento-oslo.jpg" alt="Centro de Entretenimiento Oslo">
+                    </div>
+                    <div class="card-body">
+                        <h3>Centro de Entretenimiento Oslo</h3>
+                        <p class="price">$8,600 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="card product-card categoria-otros" data-category="otros">
+                    <div class="card-image">
+                        <img src="img/catalogo/mueble-tv-berlin.jpg" alt="Mueble para TV Berlín">
+                    </div>
+                    <div class="card-body">
+                        <h3>Mueble para TV Berlín</h3>
+                        <p class="price">$5,790 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="card product-card categoria-otros" data-category="otros">
+                    <div class="card-image">
+                        <img src="img/catalogo/escritorio-urban.jpg" alt="Escritorio Oficina Urban">
+                    </div>
+                    <div class="card-body">
+                        <h3>Escritorio Oficina Urban</h3>
+                        <p class="price">$6,200 MXN</p>
+                        <a href="producto-detalle.html" class="btn-primary">Ver detalles</a>
+                    </div>
+                </article>
+
+            </section>
         </div>
     </main>
 
