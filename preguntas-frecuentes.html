@@ -6,6 +6,212 @@
     <title>Preguntas Frecuentes - Gutiérrez Mueblería</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA FAQ */
+        .faq-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 18px;
+            color: #666666;
+        }
+
+        .faq-categories {
+            margin-bottom: 60px;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 28px;
+            color: #1976D2;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1976D2;
+        }
+
+        /* ACORDEÓN EN CSS PURO */
+        .faq-item {
+            background-color: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .faq-toggle {
+            display: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            cursor: pointer;
+            background-color: #F5F5F5;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+            transition: background-color 0.3s;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background-color: #E3F2FD;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: #1976D2;
+            transition: transform 0.3s;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 25px;
+            background-color: white;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #666666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .faq-answer ul {
+            margin: 15px 0;
+            padding-left: 25px;
+            color: #666666;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        /* Cuando el checkbox está marcado */
+        .faq-toggle:checked ~ .faq-question {
+            background-color: #E3F2FD;
+        }
+
+        .faq-toggle:checked ~ .faq-question .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-toggle:checked ~ .faq-answer {
+            max-height: 800px;
+            padding: 25px;
+        }
+
+        /* CTA al final */
+        .faq-cta {
+            background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 60px;
+        }
+
+        .faq-cta h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .faq-cta p {
+            color: #E3F2FD;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .faq-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .faq-cta-button {
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .faq-cta-button.primary {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        .faq-cta-button.primary:hover {
+            background-color: #F57C00;
+            transform: translateY(-2px);
+        }
+
+        .faq-cta-button.secondary {
+            background-color: white;
+            color: #1976D2;
+        }
+
+        .faq-cta-button.secondary:hover {
+            background-color: #F5F5F5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .faq-intro {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .category-title {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+            }
+
+            .faq-toggle:checked ~ .faq-answer {
+                padding: 20px;
+            }
+
+            .faq-cta {
+                padding: 40px 20px;
+            }
+
+            .faq-cta h2 {
+                font-size: 24px;
+            }
+
+            .faq-cta-buttons {
+                flex-direction: column;
+            }
+
+            .faq-cta-button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -42,76 +248,205 @@
                 <li><a href="cotizacion.html" class="cta-btn">SOLICITAR COTIZACIÓN</a></li>
             </ul>
         </div>
-    </header>
+    </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
         <div class="container">
             <h1 class="page-title">Preguntas Frecuentes</h1>
             
-            <!-- 
-            ===========================================
-            INSTRUCCIONES:
-            Desarrolla aquí la sección de preguntas frecuentes (FAQ) con:
-            
-            ESTRUCTURA ACORDEÓN EN CSS PURO:
-            Usa inputs tipo checkbox ocultos para crear acordeón sin JavaScript
-            
-            Ejemplo de código:
-            
-            <div class="faq-item">
-              <input type="checkbox" id="faq1" class="faq-toggle">
-              <label for="faq1" class="faq-question">
-                ¿Pregunta aquí?
-                <span class="faq-icon">+</span>
-              </label>
-              <div class="faq-answer">
-                <p>Respuesta aquí...</p>
-              </div>
-            </div>
-            
-            CSS necesario:
-            .faq-toggle {
-              display: none;
-            }
-            
-            .faq-answer {
-              max-height: 0;
-              overflow: hidden;
-              transition: max-height 0.3s;
-            }
-            
-            .faq-toggle:checked ~ .faq-answer {
-              max-height: 500px;
-            }
-            
-            .faq-toggle:checked ~ .faq-question .faq-icon {
-              transform: rotate(45deg);
-            }
-            
-            PREGUNTAS SUGERIDAS (mínimo 10):
-            1. ¿Hacen envíos a domicilio?
-            2. ¿Cuál es el tiempo de entrega?
-            3. ¿Ofrecen garantía en los muebles?
-            4. ¿Aceptan pagos en mensualidades?
-            5. ¿Realizan muebles personalizados?
-            6. ¿Cuál es su política de cambios y devoluciones?
-            7. ¿Cobran por el servicio de entrega?
-            8. ¿Puedo ver los muebles antes de comprar?
-            9. ¿Ofrecen servicio de armado?
-            10. ¿Cómo puedo solicitar una cotización?
-            
-            Categorías:
-            - Compras y pagos
-            - Envíos y entregas
-            - Garantías y devoluciones
-            - Productos y servicios
-            ===========================================
-            -->
-            
-            <p style="text-align: center; margin-top: 40px;">
-                El equipo desarrollará aquí las preguntas frecuentes con acordeón en CSS puro
+            <p class="faq-intro">
+                Aquí encontrarás respuestas a las preguntas más comunes sobre nuestros productos y servicios. 
+                Si no encuentras lo que buscas, no dudes en contactarnos directamente.
             </p>
+
+            <div class="faq-categories">
+                
+                <!-- CATEGORÍA: COMPRAS Y PAGOS -->
+                <div class="category-section">
+                    <h2 class="category-title">Compras y Pagos</h2>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq1" class="faq-toggle">
+                        <label for="faq1" class="faq-question">
+                            ¿Qué formas de pago aceptan?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Aceptamos múltiples formas de pago para tu comodidad:</p>
+                            <ul>
+                                <li>Efectivo en tienda</li>
+                                <li>Tarjetas de crédito y débito (Visa, MasterCard, American Express)</li>
+                                <li>Transferencias bancarias</li>
+                                <li>Depósitos en efectivo</li>
+                                <li>Pagos a meses sin intereses con tarjetas participantes</li>
+                            </ul>
+                            <p>Para compras en línea, aceptamos tarjetas de crédito y débito, así como transferencias bancarias.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq2" class="faq-toggle">
+                        <label for="faq2" class="faq-question">
+                            ¿Ofrecen planes de financiamiento?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Sí, ofrecemos planes de financiamiento flexibles. Contamos con opciones de 3, 6, 9 y 12 meses sin intereses con tarjetas de crédito participantes. También manejamos planes especiales para compras mayores. Los requisitos son mínimos y la aprobación es rápida. Pregunta en tienda o en tu cotización por las opciones disponibles para tu compra específica.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq3" class="faq-toggle">
+                        <label for="faq3" class="faq-question">
+                            ¿Puedo apartar un mueble?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Sí, puedes apartar cualquier mueble con un anticipo del 30% del valor total. El apartado tiene vigencia de 30 días, tiempo durante el cual garantizamos el precio y la disponibilidad del producto. El saldo restante debe liquidarse antes de la entrega. Si necesitas extender el plazo de apartado, comunícate con nosotros para evaluar tu caso particular.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORÍA: ENVÍOS Y ENTREGAS -->
+                <div class="category-section">
+                    <h2 class="category-title">Envíos y Entregas</h2>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq4" class="faq-toggle">
+                        <label for="faq4" class="faq-question">
+                            ¿Hacen envíos a domicilio?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Sí, realizamos envíos a domicilio en toda la zona metropolitana de Guadalajara y municipios cercanos. El costo del envío varía según la distancia y el tamaño de los muebles. Para Tlajomulco y zonas cercanas, el envío tiene un costo reducido. Envíos fuera del área metropolitana se cotizan por separado. También ofrecemos la opción de recoger tu compra en tienda sin costo adicional.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq5" class="faq-toggle">
+                        <label for="faq5" class="faq-question">
+                            ¿Cuál es el tiempo de entrega?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>El tiempo de entrega depende de la disponibilidad del producto:</p>
+                            <ul>
+                                <li>Productos en stock: 3 a 5 días hábiles</li>
+                                <li>Productos bajo pedido: 15 a 20 días hábiles</li>
+                                <li>Muebles personalizados: 3 a 4 semanas</li>
+                            </ul>
+                            <p>Te informaremos el tiempo exacto al momento de realizar tu compra y te mantendremos actualizado durante todo el proceso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq6" class="faq-toggle">
+                        <label for="faq6" class="faq-question">
+                            ¿El servicio de armado está incluido?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>El servicio de armado e instalación tiene un costo adicional que varía según la complejidad del mueble. Sin embargo, para compras superiores a $15,000 MXN, incluimos el armado básico sin costo. Nuestro personal especializado se encargará de ensamblar y colocar tus muebles en el lugar que desees. El tiempo de armado varía según el tipo de mueble, pero generalmente toma entre 1 y 3 horas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORÍA: GARANTÍAS Y DEVOLUCIONES -->
+                <div class="category-section">
+                    <h2 class="category-title">Garantías y Devoluciones</h2>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq7" class="faq-toggle">
+                        <label for="faq7" class="faq-question">
+                            ¿Qué garantía tienen los muebles?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Todos nuestros muebles cuentan con garantía de 1 año contra defectos de fabricación y materiales. La garantía cubre:</p>
+                            <ul>
+                                <li>Defectos en estructura y ensamble</li>
+                                <li>Desprendimiento de forros y acabados</li>
+                                <li>Fallas en herrajes y mecanismos</li>
+                                <li>Problemas en el tapizado (descoseduras, desprendimientos)</li>
+                            </ul>
+                            <p>La garantía no cubre daños por uso inadecuado, desgaste natural, accidentes o modificaciones no autorizadas. Conserva tu ticket de compra como comprobante.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq8" class="faq-toggle">
+                        <label for="faq8" class="faq-question">
+                            ¿Puedo devolver o cambiar un mueble?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Aceptamos devoluciones y cambios dentro de los primeros 7 días posteriores a la entrega, siempre que el mueble esté en perfectas condiciones, sin uso, con su empaque original y ticket de compra. Los cambios por motivos de gusto o medidas incorrectas no incluyen reembolso del costo de envío. Si el producto presenta defectos de fábrica, nos hacemos cargo de todos los costos. Para iniciar un cambio o devolución, comunícate con nosotros lo antes posible.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORÍA: PRODUCTOS Y SERVICIOS -->
+                <div class="category-section">
+                    <h2 class="category-title">Productos y Servicios</h2>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq9" class="faq-toggle">
+                        <label for="faq9" class="faq-question">
+                            ¿Realizan muebles a la medida o personalizados?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Sí, fabricamos muebles personalizados según tus necesidades y especificaciones. Puedes elegir dimensiones, materiales, colores y acabados. El proceso incluye una consulta inicial para entender tus requerimientos, elaboración de diseño y presupuesto, y fabricación en nuestro taller. Los muebles personalizados tienen un tiempo de entrega de 3 a 4 semanas y requieren un anticipo del 50%. Agenda una cita para discutir tu proyecto.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq10" class="faq-toggle">
+                        <label for="faq10" class="faq-question">
+                            ¿Los precios publicados en la web son finales?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Los precios mostrados en nuestro sitio web son los precios vigentes al momento de la consulta y no incluyen costo de envío ni servicio de armado (excepto en promociones especiales). Los precios pueden estar sujetos a cambios sin previo aviso, pero una vez que realizas tu compra, el precio queda garantizado. Para conocer el costo total de tu compra incluyendo envío y armado, solicita una cotización personalizada.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq11" class="faq-toggle">
+                        <label for="faq11" class="faq-question">
+                            ¿Puedo ver los muebles antes de comprar?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Por supuesto. Te invitamos a visitar nuestro showroom en Calle Juárez Eje Sur 23, Tlajomulco De Zúñiga, donde podrás ver, tocar y probar nuestros muebles en persona. Contamos con una amplia exhibición de productos y nuestro personal estará encantado de mostrarte las diferentes opciones, materiales y acabados. También podemos coordinar una cita personalizada fuera de horario si lo requieres. Nuestros horarios son: Lunes a Viernes 9:00 AM - 7:00 PM, Sábados 9:00 AM - 5:00 PM, Domingos 10:00 AM - 3:00 PM.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq12" class="faq-toggle">
+                        <label for="faq12" class="faq-question">
+                            ¿Ofrecen servicio de diseño de interiores?
+                            <span class="faq-icon">+</span>
+                        </label>
+                        <div class="faq-answer">
+                            <p>Ofrecemos asesoría básica sin costo para ayudarte a elegir los muebles más adecuados para tu espacio. Nuestro equipo puede orientarte sobre combinaciones de colores, distribución y aprovechamiento de espacios. Para proyectos más complejos que requieran diseño integral de interiores, podemos referirte con profesionales de confianza con quienes colaboramos regularmente.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA FINAL -->
+            <div class="faq-cta">
+                <h2>¿No encontraste lo que buscabas?</h2>
+                <p>Estamos aquí para ayudarte. Contáctanos y resolveremos todas tus dudas</p>
+                <div class="faq-cta-buttons">
+                    <a href="contacto.html" class="faq-cta-button primary">Contactar</a>
+                    <a href="cotizacion.html" class="faq-cta-button secondary">Solicitar Cotización</a>
+                </div>
+            </div>
+
         </div>
     </main>
 
