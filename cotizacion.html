@@ -6,6 +6,96 @@
     <title>Solicitar Cotización - Gutiérrez Mueblería</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .quote-form {
+            background-color: var(--color-fondo);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--color-fondo-claro);
+        }
+        
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .section-subtitle {
+            font-size: 24px;
+            color: var(--color-primario);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .required {
+            color: var(--color-error);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .product-details {
+            background-color: var(--color-fondo-claro);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--color-primario);
+        }
+        
+        .product-details .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .product-details label {
+            font-weight: 600;
+            color: var(--color-primario);
+            margin-bottom: 5px;
+        }
+        
+        .product-info {
+            color: var(--color-texto);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .form-actions .btn {
+            min-width: 180px;
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .quote-form {
+                padding: 25px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -52,47 +142,189 @@
                 Completa el formulario y nos pondremos en contacto contigo a la brevedad
             </p>
             
-            <!-- 
-            ===========================================
-            INSTRUCCIONES:
-            Desarrolla aquí el formulario de cotización con:
-            
-            FORMULARIO CENTRADO (max-width: 800px):
-            
-            Datos del cliente:
-            - Nombre completo (input text, required)
-            - Correo electrónico (input email, required)
-            - Teléfono (input tel, required)
-            - Dirección de entrega (input text)
-            
-            Detalles de la cotización:
-            - Categoría de producto (select)
-              * Salas
-              * Comedores
-              * Recámaras
-              * Otros muebles
-            - Productos específicos que le interesan (textarea)
-            - Presupuesto estimado (select)
-              * Menos de $5,000
-              * $5,000 - $10,000
-              * $10,000 - $20,000
-              * Más de $20,000
-            - Fecha estimada de compra (input date)
-            - Comentarios adicionales (textarea)
-            
-            Botones:
-            - "Enviar cotización" (btn-success)
-            - "Limpiar formulario" (btn-secondary)
-            
-            Usa las clases:
-            - .form-group para cada campo
-            - .btn-success y .btn-secondary para botones
-            ===========================================
-            -->
-            
-            <p style="text-align: center; margin-top: 40px;">
-                El equipo desarrollará aquí el formulario completo de cotización
-            </p>
+            <form id="cotizacionForm" class="quote-form" style="max-width: 800px; margin: 0 auto;">
+                
+                <section class="form-section">
+                    <h2 class="section-subtitle">Información de Contacto</h2>
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo <span class="required">*</span></label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono <span class="required">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2 class="section-subtitle">Producto de Interés</h2>
+                    
+                    <div class="form-group">
+                        <label for="producto">Selecciona un Producto <span class="required">*</span></label>
+                        <select id="producto" name="producto" required>
+                            <option value="">-- Selecciona un producto --</option>
+                            <optgroup label="Salas">
+                                <option value="sala-esquinera-viena" 
+                                        data-price="$12,990 MXN"
+                                        data-description="Sala esquinera moderna con diseño elegante y cómodo, perfecta para espacios amplios."
+                                        data-dimensions="Ancho: 280 cm | Profundidad: 180 cm | Alto: 85 cm"
+                                        data-materials="Estructura en madera sólida, tapizado en tela de alta calidad, cojines con espuma de alta densidad."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Sala Esquinera Viena - $12,990 MXN</option>
+                                <option value="sala-clasica-toledo"
+                                        data-price="$9,890 MXN"
+                                        data-description="Sala de estilo clásico con acabados elegantes y diseño atemporal."
+                                        data-dimensions="Ancho: 240 cm | Profundidad: 95 cm | Alto: 90 cm"
+                                        data-materials="Madera de pino tratada, tapizado en tela resistente, patas de madera maciza."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Sala Clásica Toledo - $9,890 MXN</option>
+                                <option value="sala-reclinable-denver"
+                                        data-price="$15,200 MXN"
+                                        data-description="Sala reclinable con mecanismo suave y cómodo, ideal para relajarse."
+                                        data-dimensions="Ancho: 220 cm | Profundidad: 100 cm (reclinada: 180 cm) | Alto: 105 cm"
+                                        data-materials="Estructura metálica reforzada, tapizado en cuero sintético, mecanismo de reclinación suave."
+                                        data-guarantee="2 años de garantía en mecanismo de reclinación, 1 año en tapizado.">Sala Reclinable Denver - $15,200 MXN</option>
+                            </optgroup>
+                            <optgroup label="Comedores">
+                                <option value="comedor-nogal-6-sillas"
+                                        data-price="$13,500 MXN"
+                                        data-description="Juego de comedor completo con mesa y 6 sillas en acabado nogal elegante."
+                                        data-dimensions="Mesa: 180 cm x 90 cm x 75 cm | Sillas: 45 cm x 50 cm x 95 cm"
+                                        data-materials="Mesa en madera de nogal maciza, sillas con estructura de madera y asientos tapizados."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Comedor Nogal 6 Sillas - $13,500 MXN</option>
+                                <option value="comedor-industrial-8-sillas"
+                                        data-price="$18,200 MXN"
+                                        data-description="Comedor de estilo industrial con mesa amplia y 8 sillas, perfecto para familias grandes."
+                                        data-dimensions="Mesa: 240 cm x 100 cm x 75 cm | Sillas: 48 cm x 52 cm x 95 cm"
+                                        data-materials="Mesa con base metálica y tapa de madera, sillas con estructura metálica y asientos de madera."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Comedor Industrial 8 Sillas - $18,200 MXN</option>
+                                <option value="comedor-compacto-praga"
+                                        data-price="$9,250 MXN"
+                                        data-description="Comedor compacto ideal para espacios pequeños, incluye mesa y 4 sillas."
+                                        data-dimensions="Mesa: 140 cm x 80 cm x 75 cm | Sillas: 42 cm x 48 cm x 90 cm"
+                                        data-materials="Mesa en MDF con acabado melamínico, sillas con estructura de madera y asientos tapizados."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Comedor Compacto Praga - $9,250 MXN</option>
+                            </optgroup>
+                            <optgroup label="Recámaras">
+                                <option value="recamara-king-milwaukee"
+                                        data-price="$19,900 MXN"
+                                        data-description="Juego de recámara completo tamaño King con cabecera, cómoda y espejo."
+                                        data-dimensions="Cama: 200 cm x 200 cm | Cabecera: 220 cm x 120 cm | Cómoda: 120 cm x 50 cm x 80 cm"
+                                        data-materials="Madera de pino maciza, acabado en barniz satinado, herrajes de acero inoxidable."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Recámara King Milwaukee - $19,900 MXN</option>
+                                <option value="cabecera-queen-paris"
+                                        data-price="$4,790 MXN"
+                                        data-description="Cabecera elegante tamaño Queen con diseño parisino y acabados refinados."
+                                        data-dimensions="Ancho: 160 cm | Alto: 110 cm | Profundidad: 15 cm"
+                                        data-materials="Madera de pino con tapizado en tela de alta calidad, estructura reforzada."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Cabecera Queen Paris - $4,790 MXN</option>
+                                <option value="tocador-espejo-luna"
+                                        data-price="$7,980 MXN"
+                                        data-description="Tocador elegante con espejo redondo tipo luna y cajones espaciosos."
+                                        data-dimensions="Ancho: 120 cm | Profundidad: 45 cm | Alto: 75 cm | Espejo: 60 cm diámetro"
+                                        data-materials="Madera de pino maciza, espejo de seguridad, herrajes de acero inoxidable, acabado en barniz."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Tocador con Espejo Luna - $7,980 MXN</option>
+                            </optgroup>
+                            <optgroup label="Otros Muebles">
+                                <option value="centro-entretenimiento-oslo"
+                                        data-price="$8,600 MXN"
+                                        data-description="Centro de entretenimiento moderno con espacio para TV y almacenamiento adicional."
+                                        data-dimensions="Ancho: 200 cm | Profundidad: 45 cm | Alto: 60 cm"
+                                        data-materials="MDF con acabado melamínico, estantes ajustables, puertas con bisagras suaves."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Centro de Entretenimiento Oslo - $8,600 MXN</option>
+                                <option value="mueble-tv-berlin"
+                                        data-price="$5,790 MXN"
+                                        data-description="Mueble funcional para TV con diseño moderno y espacios de almacenamiento."
+                                        data-dimensions="Ancho: 180 cm | Profundidad: 40 cm | Alto: 50 cm"
+                                        data-materials="MDF con acabado en melamina, estantes fijos, diseño minimalista."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Mueble para TV Berlín - $5,790 MXN</option>
+                                <option value="escritorio-oficina-urban"
+                                        data-price="$6,200 MXN"
+                                        data-description="Escritorio moderno para oficina con diseño urbano y funcional."
+                                        data-dimensions="Ancho: 140 cm | Profundidad: 60 cm | Alto: 75 cm"
+                                        data-materials="MDF con acabado melamínico, estructura metálica, cajones con sistema de deslizamiento suave."
+                                        data-guarantee="1 año de garantía contra defectos de fabricación.">Escritorio Oficina Urban - $6,200 MXN</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div id="productoDetalles" class="product-details" style="display: none;">
+                        <div class="form-group">
+                            <label>Precio:</label>
+                            <p id="productoPrecio" class="product-info"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción:</label>
+                            <p id="productoDescripcion" class="product-info"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Dimensiones:</label>
+                            <p id="productoDimensiones" class="product-info"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Materiales:</label>
+                            <p id="productoMateriales" class="product-info"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Garantía:</label>
+                            <p id="productoGarantia" class="product-info"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comentariosProducto">Comentarios Adicionales sobre el Producto</label>
+                        <textarea id="comentariosProducto" name="comentariosProducto" rows="4" placeholder="Especifica colores, medidas personalizadas, o cualquier detalle adicional que necesites..."></textarea>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2 class="section-subtitle">Datos de Envío</h2>
+                    
+                    <div class="form-group">
+                        <label for="direccion">Dirección Completa <span class="required">*</span></label>
+                        <input type="text" id="direccion" name="direccion" required placeholder="Calle, número, colonia">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="codigoPostal">Código Postal <span class="required">*</span></label>
+                            <input type="text" id="codigoPostal" name="codigoPostal" required pattern="[0-9]{5}" maxlength="5">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad <span class="required">*</span></label>
+                            <input type="text" id="ciudad" name="ciudad" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estado">Estado <span class="required">*</span></label>
+                            <input type="text" id="estado" name="estado" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fechaEntrega">Fecha Estimada de Entrega</label>
+                            <input type="date" id="fechaEntrega" name="fechaEntrega" min="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="referencias">Referencias de Ubicación</label>
+                        <textarea id="referencias" name="referencias" rows="3" placeholder="Ej: Entre calle X y Y, cerca de..."></textarea>
+                    </div>
+                </section>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Enviar Cotización</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
+                </div>
+            </form>
         </div>
     </main>
 
@@ -145,6 +377,57 @@
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
     <a href="https://wa.me/52XXXXXXXXXX" class="whatsapp-float" title="¡Chatea con nosotros!">💬</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fechaEntrega = document.getElementById('fechaEntrega');
+            const today = new Date().toISOString().split('T')[0];
+            fechaEntrega.setAttribute('min', today);
+            
+            const productoSelect = document.getElementById('producto');
+            const productoDetalles = document.getElementById('productoDetalles');
+            
+            productoSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                
+                if (selectedOption.value) {
+                    productoDetalles.style.display = 'block';
+                    
+                    document.getElementById('productoPrecio').textContent = selectedOption.getAttribute('data-price') || 'Precio no disponible';
+                    document.getElementById('productoDescripcion').textContent = selectedOption.getAttribute('data-description') || 'Sin descripción';
+                    document.getElementById('productoDimensiones').textContent = selectedOption.getAttribute('data-dimensions') || 'Dimensiones no disponibles';
+                    document.getElementById('productoMateriales').textContent = selectedOption.getAttribute('data-materials') || 'Materiales no disponibles';
+                    document.getElementById('productoGarantia').textContent = selectedOption.getAttribute('data-guarantee') || 'Garantía no disponible';
+                } else {
+                    productoDetalles.style.display = 'none';
+                }
+            });
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const productoParam = urlParams.get('producto');
+            
+            if (productoParam) {
+                const option = Array.from(productoSelect.options).find(opt => opt.value === productoParam);
+                if (option) {
+                    productoSelect.value = productoParam;
+                    productoSelect.dispatchEvent(new Event('change'));
+                }
+            }
+            
+            const form = document.getElementById('cotizacionForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                alert('¡Cotización enviada exitosamente! Nos pondremos en contacto contigo a la brevedad.');
+                
+                form.reset();
+                productoDetalles.style.display = 'none';
+            });
+        });
+    </script>
 
 </body>
 </html>
